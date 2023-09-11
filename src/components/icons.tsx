@@ -1,7 +1,10 @@
 import { type FC, type SVGProps } from "react";
 import {
   ArrowLongRightIcon,
+  CalendarIcon,
+  HomeIcon,
   MagnifyingGlassIcon,
+  RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 
 const LogoType: FC = (props: SVGProps<SVGSVGElement>) => (
@@ -20,4 +23,7 @@ export const Icons = {
   logo: LogoType,
   search: MagnifyingGlassIcon,
   arrowLongRight: ArrowLongRightIcon,
+  rocket: RocketLaunchIcon,
+  home: HomeIcon,
+  calendar: CalendarIcon,
 };

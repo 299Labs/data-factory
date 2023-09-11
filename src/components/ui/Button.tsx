@@ -2,11 +2,12 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/src/lib/utils";
 
-const buttonVariants = cva("flex items-center rounded", {
+const buttonVariants = cva("inline-flex items-center space-x-1.5 rounded", {
   variants: {
     variant: {
       default: "bg-accent text-white shadow hover:bg-accent/90",
       ghost: "hover:bg-accent hover:text-accent",
+      link: "underline-offset-4 hover:underline",
     },
     size: {
       default: "h-9 px-4 py-2",

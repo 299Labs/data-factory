@@ -1,7 +1,7 @@
 import { type ReactElement } from "react";
 import { Announce } from "@/src/components/ui/Announce";
 import { Icons } from "@/src/components/icons";
-import { Link } from "../components/ui/Link";
+import { Link } from "../../components/ui/Link";
 import { Button } from "@/src/components/ui/Button";
 
 export default function Home(): ReactElement {
@@ -27,7 +27,10 @@ export default function Home(): ReactElement {
         security. Synchronize information between all devices. Any devices, no
         internet.
       </p>
-      <Button>Get Started</Button>
+      <Button className="font-medium shadow">
+        <span>Get Started</span>
+        <Icons.rocket className="h-5 w-5" />
+      </Button>
     </main>
   );
 }

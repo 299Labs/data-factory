@@ -1,6 +1,6 @@
 import React, { type FC } from "react";
 import { Icons } from "@/src/components/icons";
-import { Input } from "./ui/Input";
+import { Button } from "@/src/components/ui/Button";
 
 const PageHeader: FC = () => {
   return (
@@ -8,9 +8,12 @@ const PageHeader: FC = () => {
       <div className="mx-auto max-w-screen-xl px-4">
         <div className="flex h-14 items-center justify-between">
           <Icons.logo />
-          <div>
-            <Input placeholder="Name" />
-          </div>
+          <Button variant="link" className="text-sm font-medium">
+            <span>Create project</span>
+          </Button>
+          {/* <div> */}
+          {/*  <Input className="py-1.5" placeholder="Search someone..." /> */}
+          {/* </div> */}
         </div>
       </div>
     </div>

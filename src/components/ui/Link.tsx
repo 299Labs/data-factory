@@ -14,4 +14,23 @@ const Link = React.forwardRef<
 });
 Link.displayName = "Link";
 
-export { Link };
+const ListLink = React.forwardRef<
+  React.ElementRef<typeof LinkDor>,
+  React.ComponentPropsWithoutRef<typeof LinkDor>
+>(({ className, children, ...props }, ref) => {
+  return (
+    <LinkDor
+      className={cn(
+        "group inline-flex w-full items-center space-x-4 rounded p-2 text-gray-600 hover:bg-gray-50 hover:text-accent",
+        className,
+      )}
+      ref={ref}
+      {...props}
+    >
+      {children}
+    </LinkDor>
+  );
+});
+ListLink.displayName = "ListLink";
+
+export { Link, ListLink };
