@@ -4,7 +4,10 @@ import {
   CalendarIcon,
   HomeIcon,
   MagnifyingGlassIcon,
+  RectangleGroupIcon,
   RocketLaunchIcon,
+  ServerStackIcon,
+  SignalSlashIcon,
 } from "@heroicons/react/24/outline";
 
 const LogoType: FC = (props: SVGProps<SVGSVGElement>) => (
@@ -26,4 +29,7 @@ export const Icons = {
   rocket: RocketLaunchIcon,
   home: HomeIcon,
   calendar: CalendarIcon,
+  noSignal: SignalSlashIcon,
+  serverStack: ServerStackIcon,
+  rectangleGroup: RectangleGroupIcon,
 };

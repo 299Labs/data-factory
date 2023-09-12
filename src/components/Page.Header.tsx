@@ -4,7 +4,7 @@ import { Button } from "@/src/components/ui/Button";
 
 const PageHeader: FC = () => {
   return (
-    <div className="sticky top-0 w-full border-b bg-white backdrop-blur-lg">
+    <div className="sticky top-0 z-10 w-full border-b bg-white backdrop-blur-lg">
       <div className="mx-auto max-w-screen-xl px-4">
         <div className="flex h-14 items-center justify-between">
           <Icons.logo />
