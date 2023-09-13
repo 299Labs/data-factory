@@ -20,7 +20,7 @@ export default function Home(): ReactElement {
             </span>
           </Link>
         </Announce>
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+        <h1 className="text-4xl font-bold tracking-tight text-dark sm:text-6xl">
           Free <span className="text-accent">offline</span> data sorter for your
           business
         </h1>
@@ -36,11 +36,11 @@ export default function Home(): ReactElement {
       </div>
 
       <section className="relative overflow-hidden rounded-xl border bg-gray-50/50 p-2 text-center font-semibold shadow lg:rounded-2xl lg:p-4">
-        <div className="absolute inset-x-0 top-1/3 mx-auto h-1/2 w-1/2 rounded-3xl bg-green-400 opacity-30 blur-3xl" />
+        <div className="absolute inset-0 top-1/4 mx-auto h-32 w-32 rounded-3xl bg-secondary opacity-20 blur-3xl" />
         <p className="mb-2 mt-4 text-lg font-semibold text-accent sm:text-xl">
           Everything you need
         </p>
-        <p className="text-2xl font-semibold text-black sm:text-3xl">
+        <p className="text-2xl font-semibold text-dark sm:text-3xl">
           <span>Say goodbye 👋 to data clutter. </span>
           <br className="max-sm:hidden" />
           <span>Keep all your client info tidy in one place.</span>
@@ -53,7 +53,7 @@ export default function Home(): ReactElement {
       </section>
       <section className="flex flex-col space-y-6">
         <div className="mx-auto flex max-w-3xl flex-col space-y-4">
-          <h3 className="text-2xl font-semibold sm:text-3xl">
+          <h3 className="text-2xl font-semibold text-dark sm:text-3xl">
             Create storage in minutes
           </h3>
           <p className="text-gray-600">
@@ -74,7 +74,7 @@ export default function Home(): ReactElement {
             description={
               <>
                 Our{" "}
-                <Link href="/" className="underline">
+                <Link href="/start" className="underline">
                   quick start
                 </Link>{" "}
                 will guide you step-by-step in less than 2 minutes.
