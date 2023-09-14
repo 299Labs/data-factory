@@ -21,7 +21,9 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div aria-hidden="true" className="invisible absolute">
           <GrainyFilter />
         </div>
-        {children}
+        <main className="mx-auto flex min-h-screen flex-col items-center space-y-8 text-center max-sm:mt-10 sm:space-y-16 sm:p-24 2xl:space-y-32">
+          {children}
+        </main>
       </body>
     </html>
   );

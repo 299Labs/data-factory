@@ -2,6 +2,7 @@ import { type FC, type SVGProps } from "react";
 import {
   ArrowLongRightIcon,
   CalendarIcon,
+  FaceSmileIcon,
   HomeIcon,
   MagnifyingGlassIcon,
   RectangleGroupIcon,
@@ -32,4 +33,5 @@ export const Icons = {
   noSignal: SignalSlashIcon,
   serverStack: ServerStackIcon,
   rectangleGroup: RectangleGroupIcon,
+  faceSmile: FaceSmileIcon,
 };

@@ -3,11 +3,11 @@ import { Announce } from "@/src/components/ui/Announce";
 import { Icons } from "@/src/components/icons";
 import { Link } from "../../components/ui/Link";
 import { Button } from "@/src/components/ui/Button";
-import Step from "@/src/components/lobby/Step";
+import Step from "@/src/components/(lobby)/Step";
 
 export default function Home(): ReactElement {
   return (
-    <main className="mx-auto flex min-h-screen flex-col items-center space-y-8 text-center max-sm:mt-10 sm:space-y-16 sm:p-24 2xl:space-y-32">
+    <>
       <div className="flex max-w-3xl flex-col items-center space-y-8 ">
         <Announce className="whitespace-nowrap">
           Open source now!{" "}
@@ -96,6 +96,6 @@ export default function Home(): ReactElement {
           />
         </div>
       </section>
-    </main>
+    </>
   );
 }
