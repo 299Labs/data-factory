@@ -13,6 +13,10 @@ const config: Config = {
         dark: "#111827",
         warning: "#FF2E2E",
         success: "#2A9928",
+        border: "#E5E7EB",
+      },
+      borderWidth: {
+        "5": "6px",
       },
     },
   },

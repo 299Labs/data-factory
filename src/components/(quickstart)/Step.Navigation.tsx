@@ -2,12 +2,11 @@
 import React from "react";
 import Step from "@/src/components/(quickstart)/Step";
 import { Icons } from "@/src/components/icons";
-import { useSearchParams } from "next/navigation";
+import { cn } from "@/src/lib/utils";
+import { useStepQuery } from "@/src/hooks/useStepQuery";
 
 const StepNavigation: React.FC = () => {
-  const searchParams = useSearchParams();
-  const paramsStep = searchParams.get("step");
-  const step = paramsStep !== null ? +paramsStep : 1;
+  const step = useStepQuery();
 
   return (
     <div className="relative">
@@ -29,9 +28,13 @@ const StepNavigation: React.FC = () => {
         </Step>
       </div>
       <div
-        className={`absolute top-[25%] h-[2px] w-full bg-black bg-gradient-to-r from-accent via-accent ${step > 1 ? 'via-60%' : 'via-30%'} ${step > 1 ? 'to-90%' : 'to-60%'} to-[#E7E7E7] transition-all sm:top-[30%]`}
+        className={cn(
+          "absolute top-[25%] h-[2px] w-full bg-gradient-to-r via-accent to-[#F4F7FF] from-accent sm:top-[30%] transition-all duration-500",
+          step === 1 && "to-60% via-40%",
+          step === 2 && "to-80% via-60%",
+          step === 3 && "to-100% via-90%",
+        )}
       />
-      {/*    initial via-30 to-60, then via-60 to-90 end etc */}
     </div>
   );
 };
