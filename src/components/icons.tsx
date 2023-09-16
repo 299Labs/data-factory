@@ -1,8 +1,9 @@
 import { type FC, type SVGProps } from "react";
 import {
   ArrowLongRightIcon,
-    ArrowRightCircleIcon,
+  ArrowRightCircleIcon,
   CalendarIcon,
+  CheckIcon,
   FaceSmileIcon,
   HomeIcon,
   MagnifyingGlassIcon,
@@ -24,7 +25,7 @@ const LogoType: FC = (props: SVGProps<SVGSVGElement>) => (
   </div>
 );
 
-export const Icons= {
+export const Icons = {
   logo: LogoType,
   search: MagnifyingGlassIcon,
   arrowLongRight: ArrowLongRightIcon,
@@ -35,5 +36,6 @@ export const Icons= {
   serverStack: ServerStackIcon,
   rectangleGroup: RectangleGroupIcon,
   faceSmile: FaceSmileIcon,
-  arrowRightCircle: ArrowRightCircleIcon
+  arrowRightCircle: ArrowRightCircleIcon,
+  check: CheckIcon,
 };

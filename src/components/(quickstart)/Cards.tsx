@@ -7,6 +7,7 @@ import { useStepQuery } from "@/src/hooks/useStepQuery";
 import { useRouter } from "next/navigation";
 import { Card } from "@/src/components/(quickstart)/Card";
 import { Input } from "../ui/Input";
+import { Select } from "@/src/components/ui/Select";
 
 const Cards: React.FC = () => {
   const router = useRouter();
@@ -42,6 +43,12 @@ const Cards: React.FC = () => {
         )}
         {step === 2 && (
           <Card key={2}>
+            <div className="flex flex-col justify-center">
+              <p className="text-lg text-gray-600/70">
+                Choose the best that describes your company{" "}
+              </p>
+              <Select options={["Dentistry", "No similar"]} />
+            </div>
             <LocalButton
               onClick={() => {
                 router.push("?step=3");
