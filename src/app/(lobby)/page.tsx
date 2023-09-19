@@ -1,9 +1,9 @@
-import { type ReactElement } from "react";
+import React, { type ReactElement } from "react";
 import { Announce } from "@/src/components/ui/Announce";
 import { Icons } from "@/src/components/icons";
 import { Link } from "../../components/ui/Link";
-import { Button } from "@/src/components/ui/Button";
 import Step from "@/src/components/(lobby)/Step";
+import GetStartedButton from "@/src/components/(lobby)/GetStarted.Button";
 
 export default function Home(): ReactElement {
   return (
@@ -29,10 +29,7 @@ export default function Home(): ReactElement {
           security. Synchronize information between all devices. Any devices, no
           internet.
         </p>
-        <Button className="font-medium shadow">
-          <span>Get Started</span>
-          <Icons.rocket className="h-5 w-5" />
-        </Button>
+        <GetStartedButton />
       </div>
 
       <section className="relative overflow-hidden rounded-xl border bg-gray-50/50 p-2 text-center font-semibold shadow lg:rounded-2xl lg:p-4">
