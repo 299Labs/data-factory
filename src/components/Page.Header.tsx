@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const PageHeader: FC = () => {
   return (
-    <div className="sticky top-0 z-10 w-screen border-b bg-white backdrop-blur-lg">
+    <div className="sticky top-0 z-50 w-screen border-b bg-white backdrop-blur-lg">
       <div className="mx-auto max-w-screen-xl px-4">
         <div className="flex h-14 items-center justify-between">
           <Link href="/">

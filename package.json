@@ -16,6 +16,8 @@
     "autoprefixer": "10.4.15",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "dexie": "^3.2.4",
+    "dexie-react-hooks": "^1.1.6",
     "eslint-config-next": "13.4.19",
     "framer-motion": "^10.16.4",
     "next": "13.4.19",

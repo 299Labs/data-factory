@@ -4,6 +4,7 @@ import {
   ArrowRightCircleIcon,
   CalendarIcon,
   CheckIcon,
+  ChevronDownIcon,
   FaceSmileIcon,
   HomeIcon,
   MagnifyingGlassIcon,
@@ -38,4 +39,5 @@ export const Icons = {
   faceSmile: FaceSmileIcon,
   arrowRightCircle: ArrowRightCircleIcon,
   check: CheckIcon,
+  chevronDown: ChevronDownIcon,
 };
