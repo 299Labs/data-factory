@@ -23,8 +23,10 @@ const StepNavigation: React.FC = () => {
         >
           3
         </Step>
-        <Step status={step >= 3 ? "almost" : "far"}>
-          <Icons.faceSmile className="h-6 w-6 text-dark" />
+        <Step status={step < 3 ? "far" : step === 3 ? "almost" : "here"}>
+          <Icons.faceSmile
+            className={cn("h-6 w-6", step <= 3 ? "text-dark" : "text-white")}
+          />
         </Step>
       </div>
       <div
@@ -32,7 +34,7 @@ const StepNavigation: React.FC = () => {
           "absolute top-[25%] h-[2px] w-full bg-gradient-to-r via-accent to-[#F4F7FF] from-accent sm:top-[30%] transition-all duration-500",
           step === 1 && "to-60% via-40%",
           step === 2 && "to-80% via-60%",
-          step === 3 && "to-100% via-90%",
+          step >= 3 && "to-100% via-90%",
         )}
       />
     </div>

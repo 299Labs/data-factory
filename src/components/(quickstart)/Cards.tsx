@@ -5,6 +5,7 @@ import { useStepQuery } from "@/src/hooks/useStepQuery";
 import CompanyStep from "@/src/components/(quickstart)/Cards/Company.Step";
 import ModuleStep from "@/src/components/(quickstart)/Cards/Module.Step";
 import UserStep from "@/src/components/(quickstart)/Cards/User.Step";
+import FinishStep from "@/src/components/(quickstart)/Cards/Finish.Step";
 
 const Cards: React.FC = () => {
   const [companyName, setCompanyName] = useState<string>();
@@ -16,6 +17,7 @@ const Cards: React.FC = () => {
         {step === 1 && <CompanyStep setCompany={setCompanyName} />}
         {step === 2 && <ModuleStep companyName={companyName} />}
         {step === 3 && <UserStep />}
+        {step === 4 && <FinishStep />}
       </AnimatePresence>
     </MotionConfig>
   );

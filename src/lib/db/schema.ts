@@ -2,6 +2,7 @@ export interface DBUser {
   id?: number;
   name: string;
   email?: string;
+  birthday?: string;
   phone_number?: string;
   address?: string;
   age?: number;

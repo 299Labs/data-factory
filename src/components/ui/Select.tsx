@@ -11,6 +11,7 @@ interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   onChangeOption?: React.Dispatch<React.SetStateAction<undefined | Option>>;
   option?: Option | undefined;
   label?: string;
+  name?: string;
 }
 
 type Option = string;
@@ -25,6 +26,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
       onChangeOption,
       option,
       placeholder,
+      name,
       label,
       ...props
     },
@@ -37,6 +39,14 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
     return (
       <div className="flex flex-col space-y-1">
         {label != null && <Label htmlFor={label}>{label}</Label>}
+        {/* invisible input for formData */}
+        <input
+          readOnly
+          hidden
+          aria-hidden={true}
+          value={option ?? selectedOption}
+          name={name}
+        />
         <div
           className={cn("relative", disabled != null && "pointer-events-none")}
         >
