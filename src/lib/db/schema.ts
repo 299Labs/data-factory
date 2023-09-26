@@ -10,6 +10,7 @@ export interface DBUser {
     color: string;
     label: string;
   };
+  updatedAt: Date;
   modules?: [{ id: number; name: string; history: string }];
 }
 

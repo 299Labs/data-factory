@@ -4,8 +4,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import StepNavigation from "@/src/components/(quickstart)/Step.Navigation";
 import Cards from "@/src/components/(quickstart)/Cards";
+import Dexie from "dexie";
+import { useRouter } from "next/navigation";
 
 const Start: React.FC = () => {
+  const router = useRouter();
+  void Dexie.exists("data-factory-company-1").then(function (exists) {
+    if (exists) router.push("/dashboard");
+  });
+
   return (
     <motion.div className="flex max-w-xl flex-col space-y-3 sm:space-y-8">
       <h1 className="text-2xl font-bold text-dark sm:text-3xl">

@@ -8,33 +8,53 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { getEntries } from "@/src/lib/form";
 import { formatPhoneNum } from "@/src/lib/utils";
-import { db } from "@/src/lib/db";
+import type { DBCompanyProfile, DBUser } from "@/src/lib/db/schema";
 
+interface ModuleProps {
+  company?: DBCompanyProfile;
+  setUser: React.Dispatch<React.SetStateAction<DBUser | undefined>>;
+}
 interface Inputs {
   name: string;
   address?: string;
   birthday?: string;
   phone?: string;
 }
-const UserStep: React.FC = () => {
+const UserStep: React.FC<ModuleProps> = ({ company, setUser }) => {
   const router = useRouter();
   const [times, setTimes] = useState(0);
   const [phoneInput, setPhoneInput] = useState<string>("");
   const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    const data = getEntries<Inputs>(e);
-    void db.users.add({
-      name: data.name,
-      phone_number: data?.phone
-        ?.replace(" ", "")
-        .replace("(", "")
-        .replace(")", "")
-        .replace("-", ""),
-      address: data?.address,
-      birthday: data?.birthday,
-    });
-    router.push("?step=4");
+    if (company?.name != null) {
+      const data = getEntries<Inputs>(e);
+      // void db.users.add({
+      //   name: data.name,
+      //   phone_number: data?.phone
+      //     ?.replace(" ", "")
+      //     .replace("(", "")
+      //     .replace(")", "")
+      //     .replace("-", ""),
+      //   address: data?.address,
+      //   birthday: data?.birthday,
+      //   updatedAt: new Date(Date.now()),
+      // });
+      setUser({
+        name: data.name,
+        phone_number: data?.phone
+          ?.replace(" ", "")
+          .replace("(", "")
+          .replace(")", "")
+          .replace("-", ""),
+        address: data?.address,
+        birthday: data?.birthday,
+        updatedAt: new Date(Date.now()),
+      });
+      router.push("?step=4");
+    } else {
+      router.push("?step=1");
+    }
   };
-
+  console.log("render");
   return (
     <Card className="flex flex-col space-y-3 sm:px-6" key={3}>
       <p className="text-lg font-semibold text-gray-800">
@@ -89,7 +109,7 @@ const UserStep: React.FC = () => {
           </AnimatePresence>
         </div>
         <div className="flex">
-          {times < 2 ? (
+          {times < 2 && (
             <Button
               type="button"
               onClick={() => {
@@ -101,7 +121,8 @@ const UserStep: React.FC = () => {
             >
               {times < 1 ? "🔥 You can add more!" : "🔥 And More"}
             </Button>
-          ) : (
+          )}
+          {times >= 2 && (
             <Button
               type="submit"
               variant="white"

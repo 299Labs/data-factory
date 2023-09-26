@@ -5,9 +5,10 @@ import { Input } from "@/src/components/ui/Input";
 import { Icons } from "@/src/components/icons";
 import { Button } from "@/src/components/ui/Button";
 import { useRouter } from "next/navigation";
+import { type DBCompanyProfile } from "@/src/lib/db/schema";
 
 const CompanyStep: React.FC<{
-  setCompany: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setCompany: React.Dispatch<React.SetStateAction<DBCompanyProfile>>;
 }> = ({ setCompany }) => {
   const [inputValue, setInputValue] = useState<string | undefined>();
   const router = useRouter();
@@ -24,7 +25,7 @@ const CompanyStep: React.FC<{
 
   function setName(): void {
     if (companyName != null) {
-      setCompany(companyName);
+      setCompany({ name: companyName });
       router.push("?step=2");
     }
   }

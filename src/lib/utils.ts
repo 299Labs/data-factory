@@ -17,3 +17,8 @@ export function formatPhoneNum(value: string): string {
     10,
   )}`;
 }
+
+export function tr(value?: string): string {
+  // table replacement
+  return value ?? "None";
+}

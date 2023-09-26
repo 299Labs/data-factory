@@ -6,9 +6,14 @@ import { Card } from "@/src/components/(quickstart)/Card";
 import { Icons } from "@/src/components/icons";
 import { Button } from "@/src/components/ui/Button";
 import { useRouter } from "next/navigation";
-import { db } from "@/src/lib/db";
+import type { DBCompanyProfile } from "@/src/lib/db/schema";
 
-const ModuleStep: React.FC<{ companyName?: string }> = ({ companyName }) => {
+interface ModuleStepProps {
+  setCompany: React.Dispatch<React.SetStateAction<DBCompanyProfile>>;
+  company?: DBCompanyProfile;
+}
+
+const ModuleStep: React.FC<ModuleStepProps> = ({ setCompany, company }) => {
   const router = useRouter();
   const [module, setModule] = useState<string>();
   return (
@@ -27,16 +32,13 @@ const ModuleStep: React.FC<{ companyName?: string }> = ({ companyName }) => {
       <Button
         className="absolute inset-y-0 right-2 h-full text-accent drop-shadow hover:scale-105 active:scale-95"
         variant="link"
-        disabled={companyName == null || module == null}
+        disabled={company?.name == null || module == null}
         size="icon"
         onClick={() => {
-          if (companyName != null && module != null) {
-            void db.profile.add({
-              name: companyName,
-              modules: [module],
-            });
+          if (company?.name != null && module != null) {
+            setCompany({ name: company?.name, modules: [module] });
             router.push("?step=3");
-          }
+          } else router.push("?step=1");
         }}
       >
         <Icons.arrowRightCircle />
