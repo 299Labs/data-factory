@@ -1,7 +1,8 @@
 
-# Med Worker
+# Data Factory
 
 Secure Data Synchronization PWA
+Description was create by AI.
 
 Introduction:
 Our Secure Data Synchronization PWA (Progressive Web App) is a versatile solution for managing and synchronizing data securely across multiple devices. With a strong emphasis on data security and user convenience, it's the ideal choice for individuals and businesses alike.
@@ -29,11 +30,21 @@ Our PWA can be installed on any device, making it incredibly accessible and conv
 
 Conclusion:
 Experience the convenience of synchronized data without compromising on security with our Secure Data Synchronization PWA. Install it on any device and enjoy secure data management and synchronization at your fingertips. Try it out today!
-## Running Tests
+## Running App, Tests
+
+To start devoping, follow the steps
+1. Fork repository
+2. Clone repository
+3. Install all packages (npm,pnpm)
+```bash
+  git clone "..."
+  pnpm install
+  pnpm dev
+```
 
 To run tests, run the following command
-
 ```bash
-  pnpm test
+   pnpm test
 ```
+
 
