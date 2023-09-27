@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/src/lib/utils";
@@ -36,6 +37,22 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
     const [selectedOption, setSelectedOption] = useState<undefined | Option>(
       defaultValue ?? undefined,
     );
+
+    function onSelect(opt: Option): void {
+      const select = (value: Option | undefined): void => {
+        onChangeOption == null
+          ? setSelectedOption(value)
+          : onChangeOption(value);
+      };
+
+      // if option already selected -> unselect, else select
+      if (selectedOption === opt ?? option === opt) {
+        select(undefined);
+      } else {
+        select(opt);
+      }
+    }
+
     return (
       <div className="flex flex-col space-y-1">
         {label != null && <Label htmlFor={label}>{label}</Label>}
@@ -44,7 +61,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
           readOnly
           hidden
           aria-hidden={true}
-          value={option ?? selectedOption}
+          defaultValue={option ?? selectedOption}
           name={name}
         />
         <div
@@ -112,9 +129,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                           "font-semibold text-black",
                       )}
                       onClick={() => {
-                        onChangeOption == null
-                          ? setSelectedOption(opt)
-                          : onChangeOption(opt);
+                        onSelect(opt);
                       }}
                       key={idx}
                     >

@@ -30,6 +30,15 @@ export default function Home(): ReactElement {
           internet.
         </p>
         <GetStartedButton />
+        <p className="text-xs font-medium text-dark/70">
+          MADE BY{" "}
+          <Link
+            href="https://github.com/299Labs"
+            className="text-dark/70 underline"
+          >
+            299 LABS
+          </Link>
+        </p>
       </div>
 
       <section className="relative overflow-hidden rounded-xl border bg-gray-50/50 p-2 text-center font-semibold shadow lg:rounded-2xl lg:p-4">

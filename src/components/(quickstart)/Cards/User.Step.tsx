@@ -54,7 +54,6 @@ const UserStep: React.FC<ModuleProps> = ({ company, setUser }) => {
       router.push("?step=1");
     }
   };
-  console.log("render");
   return (
     <Card className="flex flex-col space-y-3 sm:px-6" key={3}>
       <p className="text-lg font-semibold text-gray-800">
