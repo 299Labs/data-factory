@@ -6,6 +6,7 @@ export interface DBUser {
   phone_number?: string;
   address?: string;
   age?: number;
+  sex?: string;
   status?: {
     color: string;
     label: string;

@@ -11,13 +11,14 @@ import { Icons } from "@/src/components/icons";
 import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "@/src/lib/db";
 import { cn, tr } from "@/src/lib/utils";
+import Link from "next/link";
 
 const Dashboard: React.FC = () => {
   const [name, setName] = useState("");
   const users = useLiveQuery(async () => {
     const filteredUsers = await db.users
       .where("name")
-      .startsWith(name)
+      .startsWithIgnoreCase(name)
       .toArray();
 
     return filteredUsers;
@@ -51,7 +52,9 @@ const Dashboard: React.FC = () => {
                     <div className="flex h-8 w-8 select-none items-center justify-center rounded-full border bg-gray-100 uppercase duration-150 ">
                       {user.name.slice(0, 1)}
                     </div>
-                    <span>{user.name}</span>
+                    <Link href={`/dashboard/users/${user.id}`}>
+                      {user.name}
+                    </Link>
                   </div>
                 </TableData>
 
@@ -78,7 +81,9 @@ const Dashboard: React.FC = () => {
                 </TableData>
                 <TableData>{user.updatedAt.toLocaleDateString()}</TableData>
                 <TableData>
-                  <Icons.settings className="h-5 w-5 cursor-pointer text-gray-500 duration-150 hover:text-accent" />
+                  <Link href={`/dashboard/users/${user.id}`}>
+                    <Icons.settings className="h-5 w-5 cursor-pointer text-gray-500 duration-150 hover:text-accent" />
+                  </Link>
                 </TableData>
               </TableRow>
             ))}
